@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Pizza Builder</string>
+    <string-array name="summary_array">
+        <item>Pepperoni</item>
+        <item>Mushroom</item>
+        <item>Olives</item>
+        <item>Sausage</item>
+        <item>Peppers</item>
+        <item>Extra Cheese</item>
+        <item>Garlic</item>
+    </string-array>
+</resources>
