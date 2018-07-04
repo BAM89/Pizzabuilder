@@ -30,7 +30,7 @@ public class CustomPizza extends AppCompatActivity {
         });
         PizzaManager.getInstance().startOrder();
         listViewToppings = (ListView)findViewById(R.id.listViewToppings);
-        customAdapter = new CustomAdapter(this, PizzaManager.getInstance().getAllToppings(),null);
+        customAdapter = new CustomAdapter(this, PizzaManager.getInstance().getAllToppings(),null, null);
        listViewToppings.setAdapter(customAdapter);
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -38,7 +38,7 @@ public class CustomPizza extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId){
                     case R.id.radioButtonMeat:
-                        customAdapter = new CustomAdapter(getApplicationContext(), PizzaManager.getInstance().getAllToppings(),PizzaManager.getInstance().makePizza(PizzaType.Meat).getToppings());
+                        customAdapter = new CustomAdapter(getApplicationContext(), PizzaManager.getInstance().getAllToppings(),PizzaManager.getInstance().makePizza(PizzaType.Meat).getToppings(),PizzaType.Meat);
                         listViewToppings.setAdapter(customAdapter);
                         customAdapter.notifyDataSetChanged();
 
@@ -46,10 +46,16 @@ public class CustomPizza extends AppCompatActivity {
                         toast.show(); */
                         break;
                     case R.id.radioButtonVeggie:
+                        customAdapter = new CustomAdapter(getApplicationContext(), PizzaManager.getInstance().getAllToppings(),PizzaManager.getInstance().makePizza(PizzaType.Veggie).getToppings(),PizzaType.Veggie);
+                        listViewToppings.setAdapter(customAdapter);
+                        customAdapter.notifyDataSetChanged();
                         /*toast = Toast.makeText(getApplicationContext(),"You've selected veggie pizza.", Toast.LENGTH_LONG);
                         toast.show();*/
                         break;
                     case R.id.radioButtonCustom:
+                        customAdapter = new CustomAdapter(getApplicationContext(), PizzaManager.getInstance().getAllToppings(),PizzaManager.getInstance().makePizza(PizzaType.Custom).getToppings(),PizzaType.Custom);
+                        listViewToppings.setAdapter(customAdapter);
+                        customAdapter.notifyDataSetChanged();
                         /*toast = Toast.makeText(getApplicationContext(),"Please select your toppings.", Toast.LENGTH_LONG);
                         toast.show();*/
                         break;
