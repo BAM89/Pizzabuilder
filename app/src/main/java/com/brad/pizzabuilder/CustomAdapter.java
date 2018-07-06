@@ -48,6 +48,7 @@ public class CustomAdapter extends BaseAdapter {
         View view = mInflater.inflate(R.layout.toppingcell, null);
         CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkBoxTopping);
         checkBox.setText(toppings.get(position).getName());
+        final int checkboxIndex = position;
 
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -65,6 +66,11 @@ public class CustomAdapter extends BaseAdapter {
 
                             break;
                         case Custom:
+                            //NOTE: TO ADD A TOPPING YOU HAVE TO USE THE PizzaManager to make a pizza and then add a topping
+                            //by using the toppings list to add the current item that's checked to the list of toppings.
+                            //You might have to create an integer index to hold the current position value to use as an index to
+                            //the master list.
+
                             toast = Toast.makeText(mContext,"Custom.", Toast.LENGTH_SHORT);
                             toast.show();
 
