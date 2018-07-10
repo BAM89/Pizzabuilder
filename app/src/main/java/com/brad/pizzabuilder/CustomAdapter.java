@@ -7,10 +7,8 @@ package com.brad.pizzabuilder;
         import android.widget.BaseAdapter;
         import android.widget.CheckBox;
         import android.widget.CompoundButton;
-        import android.widget.Switch;
         import android.widget.TextView;
         import java.util.ArrayList;
-        import java.util.List;
         import android.widget.Toast;
 
 public class CustomAdapter extends BaseAdapter {
@@ -45,6 +43,7 @@ public class CustomAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        BasePizza customPizza = null;
         View view = mInflater.inflate(R.layout.toppingcell, null);
         CheckBox checkBox = (CheckBox) view.findViewById(R.id.checkBoxTopping);
         checkBox.setText(toppings.get(position).getName());
@@ -56,26 +55,55 @@ public class CustomAdapter extends BaseAdapter {
                 if (isChecked) {
                     switch (pizzaType){
                         case Meat:
-                            Toast toast = Toast.makeText(mContext,"Meat Added.", Toast.LENGTH_SHORT);
+                            BasePizza meatPizza = PizzaManager.getInstance().makePizza(PizzaType.Meat);
+                            meatPizza.addTopping(toppings.get(checkboxIndex));
+                            Toast toast = Toast.makeText(mContext,String.valueOf(meatPizza.toppings.size()),Toast.LENGTH_SHORT);
                             toast.show();
-
                             break;
                         case Veggie:
-                            toast = Toast.makeText(mContext,"Veggies Added.", Toast.LENGTH_SHORT);
+                            BasePizza veggiePizza = PizzaManager.getInstance().makePizza(PizzaType.Veggie);
+                            veggiePizza.addTopping(toppings.get(checkboxIndex));
+                            toast = Toast.makeText(mContext,String.valueOf(veggiePizza.toppings.size()),Toast.LENGTH_SHORT);
                             toast.show();
-
                             break;
                         case Custom:
+                            BasePizza customPizza = PizzaManager.getInstance().makePizza(PizzaType.Custom);
+                            customPizza.addTopping(toppings.get(checkboxIndex));
+                             toast = Toast.makeText(mContext,String.valueOf(customPizza.toppings.size()),Toast.LENGTH_SHORT);
+                            toast.show();
+                            break;
+
                             //NOTE: TO ADD A TOPPING YOU HAVE TO USE THE PizzaManager to make a pizza and then add a topping
                             //by using the toppings list to add the current item that's checked to the list of toppings.
                             //You might have to create an integer index to hold the current position value to use as an index to
                             //the master list.
+                            //  toast = Toast.makeText(mContext,"Custom.", Toast.LENGTH_SHORT);
+                            // toast.show();
+                    }
 
-                            toast = Toast.makeText(mContext,"Custom.", Toast.LENGTH_SHORT);
+                }else{
+                    switch (pizzaType){
+                        case Meat:
+                            BasePizza meatPizza = PizzaManager.getInstance().makePizza(PizzaType.Meat);
+                            meatPizza.removeTopping(toppings.get(checkboxIndex));
+                            Toast toast = Toast.makeText(mContext,String.valueOf(meatPizza.toppings.size()),Toast.LENGTH_SHORT);
                             toast.show();
 
-
+                            break;
+                        case Veggie:
+                            BasePizza veggiePizza = PizzaManager.getInstance().makePizza(PizzaType.Veggie);
+                            veggiePizza.removeTopping(toppings.get(checkboxIndex));
+                            toast = Toast.makeText(mContext,String.valueOf(veggiePizza.toppings.size()),Toast.LENGTH_SHORT);
+                            toast.show();
+                            break;
+                        case Custom:
+                            BasePizza customPizza = PizzaManager.getInstance().makePizza(PizzaType.Custom);
+                            customPizza.removeTopping(toppings.get(checkboxIndex));
+                            toast = Toast.makeText(mContext,String.valueOf(customPizza.toppings.size()),Toast.LENGTH_SHORT);
+                            toast.show();
+                            break;
                     }
+
                 }
 
             }

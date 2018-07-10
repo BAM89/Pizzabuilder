@@ -1,7 +1,6 @@
 package com.brad.pizzabuilder;
 
 import java.util.ArrayList;
-import java.util.List;
 
 class PizzaManager {
     private static final PizzaManager ourInstance = new PizzaManager();
@@ -9,6 +8,7 @@ class PizzaManager {
     private ArrayList<Topping> allToppings;
     private PizzaBuilder builder;
     public ArrayList<Topping> selectedToppings;
+
 
     static PizzaManager getInstance() {
         return ourInstance;
@@ -28,11 +28,13 @@ class PizzaManager {
                 break;
             case Custom:
                 pizza = builder.buildCustom(selectedToppings);
+
         }
         return pizza;
     }
 
     public void startOrder(){
+        this.selectedToppings = new ArrayList<Topping>();
         this.allToppings = new ArrayList<Topping>();
         this.allToppings.add(new Anchovies());
         this.allToppings.add(new CanadianBacon());

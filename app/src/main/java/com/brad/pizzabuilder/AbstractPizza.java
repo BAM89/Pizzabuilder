@@ -9,6 +9,7 @@ public abstract class AbstractPizza {
    public abstract Crust getCrust();
    public abstract PizzaType getName();
    public abstract void addTopping(Topping topping);
+   public abstract void removeTopping(Topping topping);
 
 
 

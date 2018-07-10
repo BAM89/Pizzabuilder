@@ -12,7 +12,6 @@ public class BasePizza extends AbstractPizza {
     @Override
     public ArrayList<Topping> getToppings() {
         return toppings;
-
     }
 
     @Override
@@ -34,5 +33,10 @@ public class BasePizza extends AbstractPizza {
     public void addTopping(Topping topping) {
         price = price + topping.getPrice();
         toppings.add(topping);
+    }
+    @Override
+    public void removeTopping(Topping topping){
+        price = price - topping.getPrice();
+        toppings.remove(topping);
     }
 }
