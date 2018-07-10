@@ -1,5 +1,7 @@
 package com.brad.pizzabuilder;
 
+import android.view.View;
+
 import java.util.ArrayList;
 
 class PizzaManager {
@@ -9,6 +11,16 @@ class PizzaManager {
     private PizzaBuilder builder;
     public ArrayList<Topping> selectedToppings;
 
+    public BasePizza createPizzaWithToppings(PizzaType pizzaType, int checkboxIndex, boolean addOrRemove){
+        BasePizza genericPizza = PizzaManager.getInstance().makePizza(pizzaType);
+        genericPizza.addTopping(allToppings.get(checkboxIndex));
+        if (addOrRemove){
+            genericPizza.addTopping(allToppings.get(checkboxIndex));
+        }else {
+            genericPizza.removeTopping(allToppings.get(checkboxIndex));
+        }
+        return genericPizza;
+    }
 
     static PizzaManager getInstance() {
         return ourInstance;
