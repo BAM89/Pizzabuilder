@@ -46,6 +46,7 @@ class PizzaManager {
     }
 
     public void startOrder(){
+       // Order.getInstance().
         this.selectedToppings = new ArrayList<Topping>();
         this.allToppings = new ArrayList<Topping>();
         this.allToppings.add(new Anchovies());
