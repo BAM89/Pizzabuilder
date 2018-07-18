@@ -1,7 +1,10 @@
 package com.brad.pizzabuilder;
 
-public interface OrderItem {
+ interface OrderItem {
     public void NewItem();
+    String newItem();
+    String getFinalName();
+    double getTotalPrice();
 
 
 }

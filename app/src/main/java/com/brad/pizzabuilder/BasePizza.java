@@ -38,4 +38,19 @@ public class BasePizza implements OrderItem {
     public void NewItem() {
 
     }
+
+    @Override
+    public String newItem() {
+        return null;
+    }
+
+    @Override
+    public String getFinalName() {
+        return null;
+    }
+
+    @Override
+    public double getTotalPrice() {
+        return 0;
+    }
 }
