@@ -29,6 +29,8 @@ public class CustomPizza extends AppCompatActivity {
             }
         });
         PizzaManager.getInstance().startOrder();
+        Order.getInstance().addItem(PizzaManager.getInstance().makePizza(PizzaType.Meat));
+        Order.getInstance().getCount();
         listViewToppings = (ListView)findViewById(R.id.listViewToppings);
         customAdapter = new CustomAdapter(this, PizzaManager.getInstance().getAllToppings(),null, null);
        listViewToppings.setAdapter(customAdapter);

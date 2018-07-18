@@ -51,6 +51,6 @@ public class BasePizza implements OrderItem {
 
     @Override
     public double getTotalPrice() {
-        return 0;
+        return price;
     }
 }
