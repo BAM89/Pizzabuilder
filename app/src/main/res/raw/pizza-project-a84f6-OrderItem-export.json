@@ -1,0 +1,31 @@
+{
+  "Appetizer" : {
+    "Breadsticks" : 5,
+    "Cheesesticks" : 6.5,
+    "Garlic Bread" : 5.5,
+    "Wings-Buffalo" : 6.5,
+    "Wings-Garlic" : 6.5,
+    "Wings-Plain" : 6
+  },
+  "Dessert" : {
+    "Cheesecake Slice" : 3.5,
+    "Chocolate Chip Cookie" : 6.25
+  },
+  "Drinks" : {
+    "2 Liter Soda" : 1.5,
+    "Half Gallon Fresh Lemonade" : 1.5,
+    "Half Gallon Tea" : 1.5
+  },
+  "Pasta" : {
+    "Alfredo" : 6.75,
+    "Spaghetti" : 6.5
+  },
+  "Pizza" : {
+    "Cheese" : 7,
+    "Custom" : 6,
+    "Meat" : 8.5,
+    "Pepperoni" : 7.5,
+    "Sausage" : 7.5,
+    "Veggie" : 8
+  }
+}
