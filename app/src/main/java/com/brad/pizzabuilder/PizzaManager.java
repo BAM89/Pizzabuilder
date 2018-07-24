@@ -3,6 +3,8 @@ package com.brad.pizzabuilder;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.io.*;
+import android.content.Context;
 
 class PizzaManager {
     private static final PizzaManager ourInstance = new PizzaManager();
@@ -70,6 +72,32 @@ class PizzaManager {
         return allToppings;
     }
     private PizzaManager() {
+
+
+    }
+
+    public String loadJSONFromAsset(Context context) {
+        String json = null;
+        try {
+            InputStream is = context.getAssets().open("file_name.json");
+
+            int size = is.available();
+
+            byte[] buffer = new byte[size];
+
+            is.read(buffer);
+
+            is.close();
+
+            json = new String(buffer, "UTF-8");
+
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
         }
+        return json;
+
+    }
 
 }
