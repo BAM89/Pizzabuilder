@@ -9,6 +9,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 public class PizzaStore extends AppCompatActivity {
     public Button btnOrder;
     public TextView tvTitle;
@@ -30,7 +32,11 @@ public class PizzaStore extends AppCompatActivity {
                 startActivity(new Intent(PizzaStore.this,CustomPizza.class));
             }
         });
-        //PizzaManager.getInstance().startOrder();
+        PizzaManager.getInstance().startOrder();
+        String jsonData = PizzaManager.getInstance().loadJSONFromAsset(getApplicationContext());
+        JSONObject menu = new JSONObject(jsonData);
+        
+
         this.tvTitle = (TextView)findViewById(R.id.header);
         //tvTitle.setText(PizzaManager.getInstance().getName());
        // meatPizza = new MeatLovers();

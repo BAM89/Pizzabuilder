@@ -66,6 +66,7 @@ class PizzaManager {
         this.allToppings.add(new Spinach());
         builder = new PizzaBuilder();
 
+
     }
 
     public ArrayList<Topping> getAllToppings(){
@@ -79,7 +80,7 @@ class PizzaManager {
     public String loadJSONFromAsset(Context context) {
         String json = null;
         try {
-            InputStream is = context.getAssets().open("file_name.json");
+            InputStream is = context.getAssets().open("pizza-project-a84f6-OrderItem-export.json");
 
             int size = is.available();
 
