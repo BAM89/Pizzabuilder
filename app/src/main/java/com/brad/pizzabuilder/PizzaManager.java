@@ -80,7 +80,7 @@ class PizzaManager {
     public String loadJSONFromAsset(Context context) {
         String json = null;
         try {
-            InputStream is = context.getAssets().open("pizza-project-a84f6-OrderItem-export.json");
+            InputStream is = context.getAssets().open("menu.json");
 
             int size = is.available();
 

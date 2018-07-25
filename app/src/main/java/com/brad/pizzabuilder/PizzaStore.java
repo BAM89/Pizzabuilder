@@ -3,12 +3,15 @@ package com.brad.pizzabuilder;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class PizzaStore extends AppCompatActivity {
@@ -34,11 +37,19 @@ public class PizzaStore extends AppCompatActivity {
         });
         PizzaManager.getInstance().startOrder();
         String jsonData = PizzaManager.getInstance().loadJSONFromAsset(getApplicationContext());
-        JSONObject menu = new JSONObject(jsonData);
-        
+        try{
+            JSONObject menu = new JSONObject(jsonData);
+            JSONArray appetizer = menu.getJSONArray("Appetizer");
+            Log.d("Appetizer", appetizer.getString(0));
+            this.tvTitle = (TextView)findViewById(R.id.header);
+            tvTitle.setText(appetizer.getString(0));
+        }catch (JSONException e){
 
-        this.tvTitle = (TextView)findViewById(R.id.header);
-        //tvTitle.setText(PizzaManager.getInstance().getName());
+        }
+
+
+        //this.tvTitle = (TextView)findViewById(R.id.header);
+        //tvTitle.setText(appetizer.getString(0));
        // meatPizza = new MeatLovers();
         //tvTitle.setText(String.valueOf(meatPizza.getPrice()));
         /*vegetablePizza = new Veggie();*/
