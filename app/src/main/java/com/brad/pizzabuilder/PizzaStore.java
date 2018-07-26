@@ -39,10 +39,12 @@ public class PizzaStore extends AppCompatActivity {
         String jsonData = PizzaManager.getInstance().loadJSONFromAsset(getApplicationContext());
         try{
             JSONObject menu = new JSONObject(jsonData);
-            JSONArray appetizer = menu.getJSONArray("Appetizer");
-            Log.d("Appetizer", appetizer.getString(0));
+            JSONObject appetizer = menu.getJSONObject("Appetizer");
+            Log.d("Appetizer", appetizer.getString("Breadsticks"));
+            JSONArray chicken = menu.getJSONArray("Chicken");
+            //Log.d("Wings"), chicken.getString(0);
             this.tvTitle = (TextView)findViewById(R.id.header);
-            tvTitle.setText(appetizer.getString(0));
+            tvTitle.setText(appetizer.getString("Breadsticks"));
         }catch (JSONException e){
 
         }

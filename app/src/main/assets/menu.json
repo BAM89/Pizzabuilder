@@ -27,5 +27,12 @@
     "Pepperoni" : 7.5,
     "Sausage" : 7.5,
     "Veggie" : 8
-  }
+  },
+  "Chicken":
+          [
+            "Wings",
+            "Hot wing"
+          ]
+
+
 }
