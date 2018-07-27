@@ -21,7 +21,6 @@
     "Spaghetti" : 6.5
   },
   "Pizza" : {
-    "Cheese" : 7,
     "Custom" : 6,
     "Meat" : 8.5,
     "Pepperoni" : 7.5,
@@ -31,7 +30,34 @@
   "Chicken":
           [
             "Wings",
-            "Hot wing"
+            "Hot wings"
+          ],
+  "Toppings":
+          [
+              {"Name" : "Pepperoni", "Price" : 1.25, "Image" : "https://bit.ly/2AkfuKu"},
+              {"Name" : "Ham", "Price" : 1.00, "Image" : "www.pizzastore.com"},
+              {"Name" : "Anchovies", "Price" : 1.20, "Image" : "www.pizzastore.com"},
+              {"Name" : "Canadian Bacon", "Price" : 1.15, "Image" : "www.pizzastore.com"},
+              {"Name" : "Chicken", "Price" : 1.20, "Image" : "www.pizzastore.com"},
+              {"Name" : "Extra Cheese", "Price" : 0.50, "Image" : "www.pizzastore.com"},
+              {"Name" : "Garlic", "Price" : 0.75, "Image" : "www.pizzastore.com"},
+              {"Name" : "Hamburger", "Price" : 1.00, "Image" : "www.pizzastore.com"},
+              {"Name" : "Mushroom", "Price" : 1.00, "Image" : "www.pizzastore.com"},
+              {"Name" : "Olives", "Price" : 0.75, "Image" : "www.pizzastore.com"},
+              {"Name" : "Onions", "Price" : 0.60, "Image" : "www.pizzastore.com"},
+              {"Name" : "Pineapple", "Price" : 0.95, "Image" : "www.pizzastore.com"},
+              {"Name" : "Sausage", "Price" : 1.00, "Image" : "www.pizzastore.com"},
+              {"Name" : "Spinach", "Price" : 1.00, "Image" : "www.pizzastore.com"}
+
+
+
+
+
+
+
+
+
+
           ]
 
 

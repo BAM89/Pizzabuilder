@@ -1,14 +1,21 @@
 package com.brad.pizzabuilder;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.net.*;
+
+import java.io.IOException;
+import java.net.*;
+import android.graphics.*;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,6 +29,7 @@ public class PizzaStore extends AppCompatActivity {
     public CustomPi custPizza;
     public PizzaBuilder builder;
     public ListView listViewToppings;
+    public ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +49,21 @@ public class PizzaStore extends AppCompatActivity {
             JSONObject menu = new JSONObject(jsonData);
             JSONObject appetizer = menu.getJSONObject("Appetizer");
             Log.d("Appetizer", appetizer.getString("Breadsticks"));
-            JSONArray chicken = menu.getJSONArray("Chicken");
+            JSONArray chicken = menu.getJSONArray("Toppings");
             //Log.d("Wings"), chicken.getString(0);
             this.tvTitle = (TextView)findViewById(R.id.header);
-            tvTitle.setText(appetizer.getString("Breadsticks"));
+            tvTitle.setText(chicken.getJSONObject(0).getString("Name"));
+            this.imageView =(ImageView)findViewById(R.id.imageView);
+           try{
+               URL newurl = new URL(chicken.getJSONObject(0).getString("Image"));
+               Bitmap mIcon_val = BitmapFactory.decodeStream(newurl.openConnection().getInputStream());
+               this.imageView.setImageBitmap(mIcon_val);
+           }catch (MalformedURLException e){
+               Log.d("Appetizer", appetizer.getString("Breadsticks"));
+           }catch (IOException e){
+
+           }
+
         }catch (JSONException e){
 
         }
